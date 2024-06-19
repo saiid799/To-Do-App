@@ -182,21 +182,21 @@ export default function Component() {
           <div>{todos.filter((todo) => !todo.completed).length} items left</div>
           <div className="flex items-center space-x-2">
             <Button
-              variant={filter === "all" ? "primary" : "ghost"}
+              variant={filter === "all" ? "default" : "ghost"}
               size="sm"
               onClick={() => setFilter("all")}
             >
               All
             </Button>
             <Button
-              variant={filter === "active" ? "primary" : "ghost"}
+              variant={filter === "active" ? "default" : "ghost"}
               size="sm"
               onClick={() => setFilter("active")}
             >
               Active
             </Button>
             <Button
-              variant={filter === "completed" ? "primary" : "ghost"}
+              variant={filter === "completed" ? "default" : "ghost"}
               size="sm"
               onClick={() => setFilter("completed")}
             >
