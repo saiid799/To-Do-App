@@ -10,9 +10,11 @@ import { FaPenNib } from "react-icons/fa";
 import { BsFillXOctagonFill } from "react-icons/bs";
 
 export default function Component() {
-  const [todos, setTodos] = useState([]);
+  const [todos, setTodos] = useState<
+    { id: number; text: string; completed: boolean }[]
+  >([]);
   const [filter, setFilter] = useState("all");
-  const [editingTodoId, setEditingTodoId] = useState(null);
+  const [editingTodoId, setEditingTodoId] = useState<number | null>(null);
   const [editingTodoText, setEditingTodoText] = useState("");
   const [newTodoText, setNewTodoText] = useState("");
 
@@ -26,7 +28,7 @@ export default function Component() {
     }
   };
 
-  const toggleTodo = (id) => {
+  const toggleTodo = (id: number) => {
     setTodos(
       todos.map((todo) =>
         todo.id === id ? { ...todo, completed: !todo.completed } : todo
@@ -34,11 +36,11 @@ export default function Component() {
     );
   };
 
-  const deleteTodo = (id) => {
+  const deleteTodo = (id: number) => {
     setTodos(todos.filter((todo) => todo.id !== id));
   };
 
-  const editTodo = (id, newText) => {
+  const editTodo = (id: number, newText: string) => {
     setTodos(
       todos.map((todo) => (todo.id === id ? { ...todo, text: newText } : todo))
     );
@@ -46,7 +48,7 @@ export default function Component() {
     setEditingTodoText("");
   };
 
-  const startEditingTodo = (id, text) => {
+  const startEditingTodo = (id: number, text: string) => {
     setEditingTodoId(id);
     setEditingTodoText(text);
   };
